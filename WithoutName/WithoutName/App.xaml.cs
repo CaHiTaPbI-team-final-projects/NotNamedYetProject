@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-
+using System.Threading;
 namespace WithoutName
 {
     /// <summary>
@@ -13,5 +13,11 @@ namespace WithoutName
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            var langCode = WithoutName.Properties.Settings.Default.languageCode;
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(langCode);
+            base.OnStartup(e);
+        }
     }
 }
