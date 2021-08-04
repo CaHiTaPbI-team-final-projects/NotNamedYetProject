@@ -31,13 +31,6 @@ namespace WithoutName
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (leng.SelectedIndex == 0)
-                Properties.Settings.Default.languageCode = "en-US";
-            else if (leng.SelectedIndex == 1)
-                Properties.Settings.Default.languageCode = "ru-RU";
-            else if (leng.SelectedIndex == 2)
-                Properties.Settings.Default.languageCode = "uk-UA";
-            Properties.Settings.Default.Save();
             
 
 
