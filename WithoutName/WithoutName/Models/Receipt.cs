@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace WithoutName.Models
 {
-    class Receipt
+    public class Receipt
     {
+        public int Id { get; set; }
+        public DateTime BuyDate { get; set; }
+        public string Name { get; set; }
+        public int UserId { get; set; }
+        public virtual User User { get; set; }
     }
 }
