@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 
 namespace Server.Models
+
 {
     public class Card
     {
