@@ -96,7 +96,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Theme\MenuButtonTherme.xaml">
+    <Page Include="Theme\MenuButtonTheme_.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\MenuRadioButtonTherme .xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -160,6 +164,12 @@
   <ItemGroup>
     <Folder Include="System\Windows\" />
     <Folder Include="Viewmodels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\bill.png" />
+    <Resource Include="Img\card.png" />
+    <Resource Include="Img\digram.png" />
+    <Resource Include="Img\pie.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

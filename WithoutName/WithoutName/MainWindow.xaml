@@ -6,8 +6,98 @@
         xmlns:local="clr-namespace:WithoutName"
         xmlns:language="clr-namespace:WithoutName.Properties.Localization"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
+        Height="600" Width="900"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        >
+    <Border Background="#37743E" 
+            CornerRadius="20"
+            >
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-    </StackPanel>
+            <Button Content="../Img/pie.png"
+                    Grid.Column="1"                             
+                    Style="{StaticResource MenuButtonTheme}"
+                    Command="{Binding ATvm._ATBUTTON1}" 
+                    CommandParameter="{Binding ATBUTTON1}"
+                         
+            >
+                
+            </Button>
+            <RadioButton Content="_BUTTON#2"
+                         Grid.Column="2"
+                         Height="60"
+                         Width="225"
+                         Foreground="White"
+                         FontSize="22"
+                         Style="{StaticResource MenuRadioButtonTheme}"
+                         Command="{Binding ATvm._ATBUTTON2}" 
+                         CommandParameter="{Binding ATBUTTON2}"
+                     
+            />
+            <RadioButton Content="_BUTTON#3"
+                         Grid.Column="3"
+                         Height="60"
+                         Width="225"
+                         Foreground="White"
+                         FontSize="22"
+                         Style="{StaticResource MenuRadioButtonTheme}"
+                         Command="{Binding ATvm._ATBUTTON3}" 
+                         CommandParameter="{Binding ATBUTTON3}"
+                     
+            />
+            <RadioButton Content="_BUTTON#4"
+                         Grid.Column="4"
+                         Height="60"
+                         Width="225"
+                         Foreground="White"
+                         FontSize="22"
+                         Style="{StaticResource MenuRadioButtonTheme}"
+                         Command="{Binding ATvm._ATBUTTON4}" 
+                         CommandParameter="{Binding ATBUTTON4}"
+                     
+            />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <Button x:Name="ExitButton" 
+                    Grid.Column="5"
+                    HorizontalAlignment="Right"
+                    Style="{DynamicResource ExitButtonTheme}" Margin="0,-9,8,39"
+            />
+        </Grid>
+    </Border>
 </Window>

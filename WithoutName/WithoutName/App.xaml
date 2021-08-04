@@ -6,7 +6,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Theme/MenuButtonTherme.xaml"/>
+                <ResourceDictionary Source="Theme/MenuButtonTheme_.xaml"/>
+                <ResourceDictionary Source="Theme/MenuRadioButtonTheme .xaml"/>
                 <ResourceDictionary Source="Theme/TextBoxTheme.xaml"/>
                 <ResourceDictionary Source="Theme/ComboBoxTheme.xaml"/>
                 <ResourceDictionary Source="Theme/ExitButtonTheme.xaml"/>

@@ -1,9 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:_Kursowik_new.Theme">
+                    xmlns:local="clr-namespace:WithoutName.Theme">
     <Style BasedOn="{StaticResource {x:Type ToggleButton}}"
            TargetType="{x:Type RadioButton}"
-           x:Key="MenuButtonTheme"
+           x:Key="MenuRadioButtonTherme "
     >
         <Style.Setters>
             <Setter Property="Template">
@@ -28,7 +28,7 @@
 
         <Style.Triggers>
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Background" Value="#012F41"/>
+                <Setter Property="Background" Value="#316137"/>
             </Trigger>
         </Style.Triggers>
     </Style>
