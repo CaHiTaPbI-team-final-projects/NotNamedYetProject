@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace WithoutName.Models
 {
-    class Currency
+    public class Currency
     {
+        public int Id { get; set; }
+        public string Type { get; set; }
+
     }
 }
