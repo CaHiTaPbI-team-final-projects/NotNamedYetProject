@@ -1,4 +1,4 @@
-﻿<Window x:Class="WithoutName.MainWindow"
+﻿<Window x:Class="WithoutName.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -53,7 +53,7 @@
                     CommandParameter="{Binding ATBUTTON1}"
                          
             >
-                <Image Source="Img/pie.png"/>
+                <Image Source="/Img/pie.png"/>
             </Button>
 
             <Button 
@@ -63,7 +63,7 @@
                     CommandParameter="{Binding ATBUTTON1}"
                          
             >
-                <Image Source="Img/digram.png"/>
+                <Image Source="/Img/digram.png"/>
             </Button>
 
             <Button 
@@ -73,7 +73,7 @@
                     CommandParameter="{Binding ATBUTTON1}"
                          
             >
-                <Image Source="Img/card.png"/>
+                <Image Source="/Img/card.png"/>
             </Button>
 
             <Button 
@@ -83,7 +83,7 @@
                     CommandParameter="{Binding ATBUTTON1}"
                          
             >
-                <Image Source="Img/bill.png"/>
+                <Image Source="/Img/bill.png"/>
             </Button>
             <!--
             <RadioButton Content="_BUTTON#2"

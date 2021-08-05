@@ -120,7 +120,19 @@
   <data name="levin" xml:space="preserve">
     <value>Salo</value>
   </data>
+  <data name="login" xml:space="preserve">
+    <value>Увiйти:</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Пароль:</value>
+  </data>
+  <data name="signin" xml:space="preserve">
+    <value>Зарееструватися:</value>
+  </data>
   <data name="test" xml:space="preserve">
     <value>tist</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>Логiн:</value>
   </data>
 </root>

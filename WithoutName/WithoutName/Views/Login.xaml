@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WithoutName.Views"
+        xmlns:language="clr-namespace:WithoutName.Properties.Localization"
         mc:Ignorable="d"
 
         Height="230" Width="270"
@@ -30,7 +31,7 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
-                <Label Content="Username:"
+                <Label Content="{x:Static language:Lang.username}"
                        Foreground="#E9E9E9"
                        FontSize="15"
                        Width="270"
@@ -46,7 +47,7 @@
                          Grid.ColumnSpan="2"
                 />
 
-                <Label Content="Password:"
+                <Label Content="{x:Static language:Lang.password}"
                        Foreground="#E9E9E9"
                        FontSize="15"
                        Width="270"
@@ -65,7 +66,7 @@
             </StackPanel>
 
             <!--BUTTONS-->
-            <RadioButton Content="Log in"
+            <RadioButton Content="{x:Static language:Lang.login}"
                          Height="50"
                          Foreground="#E9E9E9"
                          FontSize="18"
@@ -75,7 +76,7 @@
                          Margin="0,0,111,0"
             />
 
-            <RadioButton Content="Register"
+            <RadioButton Content="{x:Static language:Lang.signin}"
                          Foreground="White"
                          FontSize="16"
                          Style="{StaticResource MenuRadioButtonTheme}"

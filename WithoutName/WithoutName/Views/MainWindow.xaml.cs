@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 
 
 
-namespace WithoutName
+namespace WithoutName.Views
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
