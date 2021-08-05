@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WithoutName.Views"
+        xmlns:language="clr-namespace:WithoutName.Properties.Localization"
         mc:Ignorable="d"
 
         Height="230" Width="270"
@@ -23,13 +24,14 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="24"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="24"/>
 
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
-                <Label Content="Username:"
+                <Label Content="{x:Static language:Lang.username}"
                        Foreground="#E9E9E9"
                        FontSize="15"
                        Width="270"
@@ -45,7 +47,7 @@
                          Grid.ColumnSpan="2"
                 />
 
-                <Label Content="Password:"
+                <Label Content="{x:Static language:Lang.password}"
                        Foreground="#E9E9E9"
                        FontSize="15"
                        Width="270"
@@ -64,26 +66,30 @@
             </StackPanel>
 
             <!--BUTTONS-->
-            <RadioButton Content=" Log in"
+            <RadioButton Content="{x:Static language:Lang.login}"
                          Height="50"
                          Foreground="#E9E9E9"
                          FontSize="18"
-                         Style="{StaticResource MenuButtonTheme}"
+                         Style="{StaticResource MenuRadioButtonTheme}"
                          Grid.Row="2" 
+                         Grid.Column="1"
                          Margin="0,0,111,0"
             />
 
-            <RadioButton Content="Register"
+            <RadioButton Content="{x:Static language:Lang.signin}"
                          Foreground="White"
                          FontSize="16"
-                         Style="{StaticResource MenuButtonTheme}" 
+                         Style="{StaticResource MenuRadioButtonTheme}"
                          Grid.Row="2" 
                          Margin="135,0,0,0" 
                          Grid.ColumnSpan="2"                        
             />
+            <ComboBox Grid.Column="1" Margin="0,0,102,0">
+                <ComboBoxItem Content="&#128512;"/>
+            </ComboBox>
 
             <Button x:Name="ExitButton" 
-                    Grid.Column="1"
+                    Grid.Column="3"
                     HorizontalAlignment="Right"
                     Style="{DynamicResource ExitButtonTheme}" Margin="0,-6,9,6"
             />
