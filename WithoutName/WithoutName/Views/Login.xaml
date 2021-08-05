@@ -23,6 +23,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="24"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="24"/>
 
@@ -64,26 +65,30 @@
             </StackPanel>
 
             <!--BUTTONS-->
-            <RadioButton Content=" Log in"
+            <RadioButton Content="Log in"
                          Height="50"
                          Foreground="#E9E9E9"
                          FontSize="18"
-                         Style="{StaticResource MenuButtonTheme}"
+                         Style="{StaticResource MenuRadioButtonTheme}"
                          Grid.Row="2" 
+                         Grid.Column="1"
                          Margin="0,0,111,0"
             />
 
             <RadioButton Content="Register"
                          Foreground="White"
                          FontSize="16"
-                         Style="{StaticResource MenuButtonTheme}" 
+                         Style="{StaticResource MenuRadioButtonTheme}"
                          Grid.Row="2" 
                          Margin="135,0,0,0" 
                          Grid.ColumnSpan="2"                        
             />
+            <ComboBox Grid.Column="1" Margin="0,0,102,0">
+                <ComboBoxItem Content="&#128512;"/>
+            </ComboBox>
 
             <Button x:Name="ExitButton" 
-                    Grid.Column="1"
+                    Grid.Column="3"
                     HorizontalAlignment="Right"
                     Style="{DynamicResource ExitButtonTheme}" Margin="0,-6,9,6"
             />

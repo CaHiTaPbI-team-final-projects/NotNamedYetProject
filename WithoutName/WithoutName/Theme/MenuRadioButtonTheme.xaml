@@ -3,7 +3,7 @@
                     xmlns:local="clr-namespace:WithoutName.Theme">
     <Style BasedOn="{StaticResource {x:Type ToggleButton}}"
            TargetType="{x:Type RadioButton}"
-           x:Key="MenuRadioButtonTherme "
+           x:Key="MenuRadioButtonTheme"
     >
         <Style.Setters>
             <Setter Property="Template">
@@ -21,7 +21,7 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            
+
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
         </Style.Setters>
