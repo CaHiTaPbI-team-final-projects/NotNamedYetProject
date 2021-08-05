@@ -56,6 +56,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Category.cs" />
@@ -69,6 +70,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Lang.uk-UA.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\AccountViewModel.cs" />
+    <Compile Include="ViewModels\CardViewModel.cs" />
+    <Compile Include="ViewModels\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\CurrencyViewModel.cs" />
+    <Compile Include="ViewModels\LoginWindowViewModel.cs" />
+    <Compile Include="ViewModels\ReceiptViewModel.cs" />
+    <Compile Include="ViewModels\TransactionViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="ViewModels\WarrantyViewModel.cs" />
     <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -165,10 +175,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="System\Windows\" />
-    <Folder Include="Viewmodels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Img\bill.png" />
     <Resource Include="Img\card.png" />
