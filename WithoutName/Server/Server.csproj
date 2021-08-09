@@ -64,6 +64,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Repositories\Implementations\AccountsRepositry.cs" />
+    <Compile Include="Repositories\Implementations\CardsRepository.cs" />
+    <Compile Include="Repositories\Implementations\CategoriesRepository.cs" />
+    <Compile Include="Repositories\Implementations\CurrenciesRepository.cs" />
+    <Compile Include="Repositories\Implementations\ReceiptsRepository.cs" />
+    <Compile Include="Repositories\Implementations\TransactionsRepository.cs" />
+    <Compile Include="Repositories\Implementations\UsersRepository.cs" />
+    <Compile Include="Repositories\Implementations\WarrantiesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IAccountsRepositry.cs" />
+    <Compile Include="Repositories\Interfaces\ICardsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICategoriesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICurrenciesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IReceiptsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITransactionsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUsersRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IWarrantiesRepository.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -72,6 +88,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ControlModels\ServerControl.cs" />
     <Compile Include="EF\EDM.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -79,6 +96,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\202108051449444_first.cs" />
+    <Compile Include="Migrations\202108051449444_first.Designer.cs">
+      <DependentUpon>202108051449444_first.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Category.cs" />
@@ -100,6 +122,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\202108051449444_first.resx">
+      <DependentUpon>202108051449444_first.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -113,5 +138,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

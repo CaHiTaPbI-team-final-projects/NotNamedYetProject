@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Server"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="293" Width="485">
     <Grid>
-        
+        <TextBox x:Name="IpBox" HorizontalAlignment="Left" Height="26" Margin="52,10,0,0" Text="" VerticalAlignment="Top" Width="173"/>
+        <Label Content="Ip" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.342,-0.154" Width="42"/>
+        <TextBox x:Name="PortBox" HorizontalAlignment="Left" Height="26" Margin="52,41,0,0" VerticalAlignment="Top" Width="173"/>
+        <Label Content="Port" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.342,-0.154" Width="42"/>
+        <Label x:Name="StatusBox" Content="Статус сервера: выключен" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="215"/>
+        <TextBox x:Name="LogBox" HorizontalAlignment="Left" Height="149" Margin="10,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="457" AcceptsReturn="True"/>
+        <Button x:Name="Start_button" Content="Start" Click="Button_Click" HorizontalAlignment="Left" Margin="247,10,0,0" VerticalAlignment="Top" Width="220" RenderTransformOrigin="0.413,0.8" Height="26" />
+        <Button x:Name="Stop_button" Content="Stop" HorizontalAlignment="Left" Margin="247,41,0,0" VerticalAlignment="Top" Width="220" RenderTransformOrigin="0.413,0.8" Click="Stop_button_Click" Height="26"/>
+
     </Grid>
 </Window>
