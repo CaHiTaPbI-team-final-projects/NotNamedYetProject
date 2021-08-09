@@ -47,18 +47,24 @@ namespace WithoutName.ViewModels
 
 
 
-
-
-        public string CommandToServer (string operation, string var1)
+        public string CommandToServer (Params p)
         {
             try
             {
                 client = new TcpClient();
                 client.Connect(ep);
                 NetworkStream ns = client.GetStream();
-
                 StreamWriter writer = new StreamWriter(ns);
-                writer.WriteLine($"{operation};{var1}");
+                string request = "";
+                for (int i = 0; i < p.t.Count; i++)
+                {
+                    if(i != 0)
+                    {
+                        request += ";";
+                    }
+                    request += $"{p.t[i]}";
+                }
+                writer.WriteLine($"");
                 writer.Flush();
 
 
@@ -70,142 +76,182 @@ namespace WithoutName.ViewModels
                 StreamReader reader = new StreamReader(ns);
                 buff = reader.ReadLine();
                 MessageBox.Show("Получен ответ: " + buff);
+
+
+
+
+
+                reader.Close();
+                writer.Close();
+                ns.Close();
+                client.Close();
+                return buff;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "An error occured when we are sending message");
+                return null;
+
+            }
+        }
+
+        //public string CommandToServer (string operation, string var1)
+        //{
+        //    try
+        //    {
+        //        client = new TcpClient();
+        //        client.Connect(ep);
+        //        NetworkStream ns = client.GetStream();
+
+        //        StreamWriter writer = new StreamWriter(ns);
+        //        writer.WriteLine($"{operation};{var1}");
+        //        writer.Flush();
+
+
+        //        string buff;
+
+
+
+        //        //BinaryReader(new BufferedStream(stream));
+        //        StreamReader reader = new StreamReader(ns);
+        //        buff = reader.ReadLine();
+        //        MessageBox.Show("Получен ответ: " + buff);
 
                 
 
 
 
-                reader.Close();
-                writer.Close();
-                ns.Close();
-                client.Close();
-                return buff;
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.Message, "An error occured when we are sending message");
-                return null;
+        //        reader.Close();
+        //        writer.Close();
+        //        ns.Close();
+        //        client.Close();
+        //        return buff;
+        //    }
+        //    catch (Exception err)
+        //    {
+        //        MessageBox.Show(err.Message, "An error occured when we are sending message");
+        //        return null;
 
-            }
-        }
+        //    }
+        //}
 
-        public string CommandToServer(string operation, string var1,string var2)
-        {
-            try
-            {
-                client = new TcpClient();
-                client.Connect(ep);
-                NetworkStream ns = client.GetStream();
+        //public string CommandToServer(string operation, string var1,string var2)
+        //{
+        //    try
+        //    {
+        //        client = new TcpClient();
+        //        client.Connect(ep);
+        //        NetworkStream ns = client.GetStream();
 
-                StreamWriter writer = new StreamWriter(ns);
-                writer.WriteLine($"{operation};{var1};{var2}");
-                writer.Flush();
-
-
-                string buff;
+        //        StreamWriter writer = new StreamWriter(ns);
+        //        writer.WriteLine($"{operation};{var1};{var2}");
+        //        writer.Flush();
 
 
-
-                //BinaryReader(new BufferedStream(stream));
-                StreamReader reader = new StreamReader(ns);
-                buff = reader.ReadLine();
-                MessageBox.Show("Получен ответ: " + buff);
+        //        string buff;
 
 
 
-
-
-                reader.Close();
-                writer.Close();
-                ns.Close();
-                client.Close();
-                return buff;
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.Message, "An error occured when we are sending message");
-                return null;
-            }
-        }
-
-        public string CommandToServer(string operation, string var1, string var2, string var3)
-        {
-            try
-            {
-                client = new TcpClient();
-                client.Connect(ep);
-                NetworkStream ns = client.GetStream();
-
-                StreamWriter writer = new StreamWriter(ns);
-                writer.WriteLine($"{operation};{var1};{var2};{var3}");
-                writer.Flush();
-
-
-                string buff;
-
-
-
-                //BinaryReader(new BufferedStream(stream));
-                StreamReader reader = new StreamReader(ns);
-                buff = reader.ReadLine();
-                MessageBox.Show("Получен ответ: " + buff);
+        //        //BinaryReader(new BufferedStream(stream));
+        //        StreamReader reader = new StreamReader(ns);
+        //        buff = reader.ReadLine();
+        //        MessageBox.Show("Получен ответ: " + buff);
 
 
 
 
 
-                reader.Close();
-                writer.Close();
-                ns.Close();
-                client.Close();
-                return buff;
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.Message, "An error occured when we are sending message");
-                return null;
-            }
-        }
+        //        reader.Close();
+        //        writer.Close();
+        //        ns.Close();
+        //        client.Close();
+        //        return buff;
+        //    }
+        //    catch (Exception err)
+        //    {
+        //        MessageBox.Show(err.Message, "An error occured when we are sending message");
+        //        return null;
+        //    }
+        //}
+
+        //public string CommandToServer(string operation, string var1, string var2, string var3)
+        //{
+        //    try
+        //    {
+        //        client = new TcpClient();
+        //        client.Connect(ep);
+        //        NetworkStream ns = client.GetStream();
+
+        //        StreamWriter writer = new StreamWriter(ns);
+        //        writer.WriteLine($"{operation};{var1};{var2};{var3}");
+        //        writer.Flush();
 
 
-        public string CommandToServer(string operation, string var1, string var2, string var3, string var4)
-        {
-            try
-            {
-                client = new TcpClient();
-                client.Connect(ep);
-                NetworkStream ns = client.GetStream();
-
-                StreamWriter writer = new StreamWriter(ns);
-                writer.WriteLine($"{operation};{var1};{var2};{var3};{var4}");
-                writer.Flush();
-
-
-                string buff;
-
-
-
-                //BinaryReader(new BufferedStream(stream));
-                StreamReader reader = new StreamReader(ns);
-                buff = reader.ReadLine();
-                MessageBox.Show("Получен ответ: " + buff);
+        //        string buff;
 
 
 
+        //        //BinaryReader(new BufferedStream(stream));
+        //        StreamReader reader = new StreamReader(ns);
+        //        buff = reader.ReadLine();
+        //        MessageBox.Show("Получен ответ: " + buff);
 
 
-                reader.Close();
-                writer.Close();
-                ns.Close();
-                client.Close();
-                return buff;
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.Message, "An error occured when we are sending message");
-                return null;
-            }
-        }
+
+
+
+        //        reader.Close();
+        //        writer.Close();
+        //        ns.Close();
+        //        client.Close();
+        //        return buff;
+        //    }
+        //    catch (Exception err)
+        //    {
+        //        MessageBox.Show(err.Message, "An error occured when we are sending message");
+        //        return null;
+        //    }
+        //}
+
+
+        //public string CommandToServer(string operation, string var1, string var2, string var3, string var4)
+        //{
+        //    try
+        //    {
+        //        client = new TcpClient();
+        //        client.Connect(ep);
+        //        NetworkStream ns = client.GetStream();
+
+        //        StreamWriter writer = new StreamWriter(ns);
+        //        writer.WriteLine($"{operation};{var1};{var2};{var3};{var4}");
+        //        writer.Flush();
+
+
+        //        string buff;
+
+
+
+        //        //BinaryReader(new BufferedStream(stream));
+        //        StreamReader reader = new StreamReader(ns);
+        //        buff = reader.ReadLine();
+        //        MessageBox.Show("Получен ответ: " + buff);
+
+
+
+
+
+        //        reader.Close();
+        //        writer.Close();
+        //        ns.Close();
+        //        client.Close();
+        //        return buff;
+        //    }
+        //    catch (Exception err)
+        //    {
+        //        MessageBox.Show(err.Message, "An error occured when we are sending message");
+        //        return null;
+        //    }
+        //}
 
 
 
