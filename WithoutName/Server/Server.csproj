@@ -64,6 +64,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Repositories\Implementations\AccountsRepositry.cs" />
+    <Compile Include="Repositories\Implementations\CardsRepository.cs" />
+    <Compile Include="Repositories\Implementations\CategoriesRepository.cs" />
+    <Compile Include="Repositories\Implementations\CurrenciesRepository.cs" />
+    <Compile Include="Repositories\Implementations\ReceiptsRepository.cs" />
+    <Compile Include="Repositories\Implementations\TransactionsRepository.cs" />
+    <Compile Include="Repositories\Implementations\UsersRepository.cs" />
+    <Compile Include="Repositories\Implementations\WarrantiesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IAccountsRepositry.cs" />
+    <Compile Include="Repositories\Interfaces\ICardsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICategoriesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICurrenciesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IReceiptsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITransactionsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUsersRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IWarrantiesRepository.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -121,5 +137,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
