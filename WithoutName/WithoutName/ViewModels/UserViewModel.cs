@@ -19,20 +19,16 @@ namespace WithoutName.ViewModels
 {
     public class UserViewModel : INotifyPropertyChanged 
     {
+
+
+
+        ServerViewModel SVM { get; set; }
         
-
-        public ObservableCollection<User> UsersList { get; set; }
-
-        public UserViewModel()
+        public UserViewModel(ServerViewModel SV)
         {
-            //dolBaza = new EDDM();
-            //UsersList = new ObservableCollection<User>();
-            //var UserListVar = dolBaza.Users.ToList();
-            //UsersList.Add(new User() { Id = -1, FirstName = "Пользователи", MoneySpent = 0, Password = "-", Phone = "0", SecondName = "-", ThirdName = "-", Username = "-" });
-            //foreach (User user in UserListVar)
-            //{
-            //    UsersList.Add(user);
-            //}
+            SVM = SV;
+          
+            
         }
 
         private User _selectedUser;
@@ -53,61 +49,30 @@ namespace WithoutName.ViewModels
             {
                 return _addUser ?? (_addUser = new RelayCommand(obj =>
                 {
-                    User user = new User()
-                    {
-                        Id = 0,
-                        MonthLimit = 0,
-                        Income = 0,
-                        Password = "",
-                        Login = "",
-
-
-                        // WIP
-                        /*
-                        Surname = "test",
-                        Name = "test"
-                         */
-                    };
-                    UsersList.Add(user);
-                    SelectedUser = user;
+                    string response = SVM.CommandToServer("ADD_USER","login","password");
+                    if (response != null)
+                        MessageBox.Show("Registration Succesfully");
                 }));
             }
         }
 
-        //private RelayCommand _updateUser;
-        //public RelayCommand UpdateUser
-        //{
-        //    get
-        //    {
-        //        return _updateUser ?? (_updateUser = new RelayCommand(obj =>
-        //        {
-        //            var newUsers = UsersList.Where(u => u.Id == 0).ToList();
-        //            foreach (var nu in newUsers)
-        //                dolBaza.Users.Add(new User() { FirstName = nu.FirstName, SecondName = nu.SecondName, ThirdName = nu.ThirdName, MoneySpent = nu.MoneySpent, Phone = nu.Phone, Username = nu.Username, Password = nu.Password });
-        //            dolBaza.SaveChanges();
-        //            MessageBox.Show("New users added succesfully");
-        //        }));
-        //    }
-        //}
+        private RelayCommand _authUser;
+        public RelayCommand AuthUser
+        {
+            get
+            {
+                return _authUser ?? (_authUser = new RelayCommand(obj =>
+                {
+                    string response = SVM.CommandToServer("LOGIN_USER", "login", "password");
+                    if (response != null)
+                        MessageBox.Show("Authoriztion Succesfully");
+                }));
+            }
+        }
 
 
-        //private RelayCommand _delUser;
-        //public RelayCommand DelUser
-        //{
-        //    get
-        //    {
-        //        return _delUser ?? (_delUser = new RelayCommand(obj =>
-        //        {
-        //            var deletedUser = dolBaza.Users.Where(c => c.Phone == SelectedUser.Phone).FirstOrDefault();
-        //            if (deletedUser != null)
-        //            {
-        //                dolBaza.Users.Remove(deletedUser);
-        //                dolBaza.SaveChanges();
-        //                MessageBox.Show("User вырезан succesfully");
-        //            }
-        //        }));
-        //    }
-        //}
+
+
 
 
         public event PropertyChangedEventHandler PropertyChanged;
