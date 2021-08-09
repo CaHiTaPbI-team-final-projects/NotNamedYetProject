@@ -19,6 +19,7 @@ namespace WithoutName.ViewModels
 {
     public class LoginWindowViewModel : INotifyPropertyChanged
     {
+        ServerViewModel SVM { get; set; } = new ServerViewModel();
         //login values
         private string _login;
         private string _password;
@@ -32,7 +33,7 @@ namespace WithoutName.ViewModels
         private string _snameReg;
 
 
-        private UserViewModel uvm = new UserViewModel();
+        private UserViewModel uvm { get; set; }
 
         // Data for main window
         public bool isAuthorized { get; set; }
@@ -46,10 +47,11 @@ namespace WithoutName.ViewModels
 
         //public LoginWindowViewModel(LoginWindow loginWindow)
         //{
+        //    uvm = new UserViewModel(SVM);
         //    isAuthorized = false;
-        //    Authorize = new RelayCommand(ForceAuthorize, canExecuteMethod);
-        //    Register = new RelayCommand(ForceRegister, canExecuteMethod);
-        //    _loginWindow = loginWindow;
+        //    //Authorize = new RelayCommand(ForceAuthorize, canExecuteMethod);
+        //    //Register = new RelayCommand(ForceRegister, canExecuteMethod);
+        //    //_loginWindow = loginWindow;
         //}
 
         public static string GetHash(string input)
