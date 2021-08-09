@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.IO;
+using Server.ControlModels;
 
 namespace Server
 {
@@ -23,21 +25,16 @@ namespace Server
     /// </summary>
     public partial class MainWindow : Window
     {
-        int port;
+        ServerControl sc  = new ServerControl();
+
+        int port = 15228;
         IPAddress addr;
         IPEndPoint ep;
 
-        Socket listener;
-        Thread workThread;
-        ManualResetEvent threadEvent;
+        TcpListener listener;
 
-        byte[] buff1 = new byte[1024];
-        byte[] buff2 = new byte[1024];
+        string response="";
 
-        string clientMessage = String.Empty;
-        string serverMessage = String.Empty;
-
-        int receiveBytes = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -45,90 +42,93 @@ namespace Server
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show("1");
+            Thread t1 = new Thread(startListening);
+            t1.Start();
+            StatusBox.Content = "Сервер включен";
+            Start_button.IsEnabled = false;
+        }
+
+        private void startListening() // запуск прослушки. кгб слышит все
+        {
+            MessageBox.Show("2");
             try
             {
-                threadEvent = new ManualResetEvent(false);
+                listener = new TcpListener(IPAddress.Any, port);
+                listener.Start();
 
-                addr = IPAddress.Parse(IpBox.Text);
-                port = int.Parse(PortBox.Text);
-                ep = new IPEndPoint(addr, port);
 
-                listener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
-                listener.Bind(ep);
-                listener.Listen(100);
+                while (true)
+                {
+                    TcpClient client = listener.AcceptTcpClient();
 
-                workThread = new Thread(new ThreadStart(ThreadMethod));
-                workThread.IsBackground = true;
-                workThread.Start();
+                    Thread t1 = new Thread(new ParameterizedThreadStart(acceptClient));
+                    t1.Start(client);
 
-                Start_button.IsEnabled = false;
-                StatusBox.Content = "Сосотояние сервера - включен!";
-                LogBox.Text += DateTime.Now.ToString() + " -> Сервер успешно запущен! \r\n";
+                    client.Close();
+                }
+
             }
-            catch (Exception err)
+            catch (Exception ex)
             {
-                MessageBox.Show(err.Message, "Ошибка запуска сервера");
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (listener != null)
+                {
+                    listener.Stop();
+                    Start_button.IsEnabled = true;
+
+                }
+                    
             }
         }
 
-        void ThreadMethod()
+        private void acceptClient(object cl)
         {
-            try
+            TcpClient client = (TcpClient)cl;
+
+            NetworkStream stream = client.GetStream();
+
+            StreamReader reader = new StreamReader(stream);
+            // считываем строку из потока
+            string message = reader.ReadLine();
+
+            MessageBox.Show("Получено: " + message);
+
+            string[] msg = message.Split(';');
+
+            switch (msg[0])
             {
-                while (true)
-                {
-                    // Socket acceptor = listener.Accept();
-                    // acceptor.Receive()
-                    AsyncCallback delegate1 = new AsyncCallback(AcceptCallback);
-                    listener.BeginAccept(delegate1, listener);
-                    threadEvent.WaitOne();
-                }
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.Message, "Ошибка потока");
+                case "ADDTRANS":
+                    sc.ADDTRANS(decimal.Parse(msg[1]), int.Parse(msg[2]), int.Parse(msg[3]));
+                    break;
+
+                case "GETSTAT":
+                    response = sc.GETSTAT(int.Parse(msg[1])).ToString();
+                    break;
+                case "ADD_USER":
+                    sc.ADD_USER(msg[1], msg[2]);
+                    break;
+
             }
 
-            void AcceptCallback(IAsyncResult state)
-            {
-                Socket listener = (Socket)state.AsyncState;
-                Socket acceptor = listener.EndAccept(state);
-                AsyncCallback delegate2 = new AsyncCallback(ReceiveCallback);
-                acceptor.BeginReceive(buff1, 0, buff1.Length, 0, delegate2, acceptor);
-            }
+            // отправляем ответ
+            StreamWriter writer = new StreamWriter(stream);
+            message = message.ToUpper();
+            MessageBox.Show("Отправлено: " + message);
+            writer.WriteLine(message);
 
-            // 3
-            void ReceiveCallback(IAsyncResult state)
-            {
-                Socket acceptor = (Socket)state.AsyncState;
-                receiveBytes = acceptor.EndReceive(state);
-                clientMessage = Encoding.UTF8.GetString(buff1, 0, receiveBytes);
+            writer.Close();
+            reader.Close();
+            stream.Close();
+        }
 
-                if (clientMessage == "GET_CHAT")
-                {
-                    serverMessage = LogBox.Text;
-                    buff2 = Encoding.UTF8.GetBytes(serverMessage);
-                    AsyncCallback delegate3 = new AsyncCallback(SendCallback);
-                    acceptor.BeginSend(buff2, 0, buff2.Length, 0, delegate3, acceptor);
-                }
-                else
-                {
-                    LogBox.Text += DateTime.Now.ToString() + " -> " + clientMessage + "\r\n";
-                    acceptor.Shutdown(SocketShutdown.Both);
-                    acceptor.Close();
-                    threadEvent.Set();
-                }
-            }
-
-            // 4
-            void SendCallback(IAsyncResult state)
-            {
-                Socket acceptor = (Socket)state.AsyncState;
-                acceptor.EndSend(state);
-                acceptor.Shutdown(SocketShutdown.Both);
-                acceptor.Close();
-                threadEvent.Set();
-            }
+        private void Stop_button_Click(object sender, RoutedEventArgs e)
+        {
+            listener.Stop();
+            StatusBox.Content = "Сервер выключен";
         }
     }
 }
