@@ -69,9 +69,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Lang.uk-UA.resx</DependentUpon>
     </Compile>
+    <Compile Include="Views\ErrWindow.xaml.cs">
+      <DependentUpon>ErrWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Page Include="Theme\ConfirmButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ErrWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -174,6 +185,9 @@
     <Resource Include="Img\card.png" />
     <Resource Include="Img\digram.png" />
     <Resource Include="Img\pie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\check.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
