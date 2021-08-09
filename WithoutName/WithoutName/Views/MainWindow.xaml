@@ -145,7 +145,12 @@
                     Style="{DynamicResource ExitButtonTheme}" Margin="0,-9,8,39"
             />
 
-
+            <StackPanel Grid.Column="1" Grid.Row="1">
+                <TextBox x:Name="SumBox"></TextBox>
+                <ComboBox x:Name="CategoriesBox"></ComboBox>
+                <ComboBox x:Name="CurrenciesBox"></ComboBox>
+                <Button x:Name="AddSum" Content="Send"/>
+            </StackPanel>
 
         </Grid>
     </Border>
