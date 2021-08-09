@@ -27,6 +27,20 @@ namespace Server.EF
         public virtual DbSet<Transaction> Transactions { get; set; }
         public virtual DbSet<Warranty> Warranties { get; set; }
 
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Warranty>()
+        //        .Property(x => x.Blob).HasColumnType("varchar")
+        //        .IsRequired();
+
+        //    modelBuilder.Entity<Receipt>()
+        //        .Property(x => x.Blob).HasColumnType("varchar")
+        //        .IsRequired();
+
+        //    modelBuilder.Entity<Card>()
+        //        .Property(x => x.Blob).HasColumnType("varchar")
+        //        .IsRequired();
+        //}
 
 
         // Добавьте DbSet для каждого типа сущности, который требуется включить в модель. Дополнительные сведения 
