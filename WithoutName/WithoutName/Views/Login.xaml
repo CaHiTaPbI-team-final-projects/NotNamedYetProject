@@ -7,7 +7,7 @@
         xmlns:language="clr-namespace:WithoutName.Properties.Localization"
         mc:Ignorable="d"
 
-        Height="230" Width="270"
+        Height="250" Width="300"
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
@@ -20,7 +20,7 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
-                <RowDefinition Height="150"/>
+                <RowDefinition Height="170"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -34,10 +34,10 @@
                 <Label Content="{x:Static language:Lang.username}"
                        Foreground="#E9E9E9"
                        FontSize="15"
-                       Width="270"
+                       Width="252"
                        Height="33"
                        VerticalAlignment="Top"
-                       HorizontalAlignment="Left"
+                       HorizontalAlignment="Left" Margin="18,0,0,0"
                 />
                 <TextBox Width="270"
                          Height="40"
@@ -50,10 +50,10 @@
                 <Label Content="{x:Static language:Lang.password}"
                        Foreground="#E9E9E9"
                        FontSize="15"
-                       Width="270"
+                       Width="252"
                        Height="33"
                        VerticalAlignment="Top"
-                       HorizontalAlignment="Left"
+                       HorizontalAlignment="Left" Margin="18,0,0,0"
                 />
                 <TextBox Width="270"
                          Height="40"
@@ -61,6 +61,13 @@
                          HorizontalAlignment="Center"
                          Style="{StaticResource ModernField}"
                          Grid.ColumnSpan="2"
+                />
+                <Label Content="ERR"
+                       Foreground="#E53041"
+                       FontSize="12"
+                       Height="26"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Center"
                 />
 
             </StackPanel>
