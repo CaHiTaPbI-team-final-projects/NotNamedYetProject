@@ -61,6 +61,7 @@
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Currency.cs" />
+    <Compile Include="Models\Params.cs" />
     <Compile Include="Models\Receipt.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\User.cs" />
@@ -83,6 +84,17 @@
     <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ErrWindow.xaml.cs">
+      <DependentUpon>ErrWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Theme\ConfirmButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ErrWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -182,6 +194,9 @@
     <Resource Include="Img\card.png" />
     <Resource Include="Img\digram.png" />
     <Resource Include="Img\pie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\check.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

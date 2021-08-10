@@ -30,6 +30,15 @@
             </Grid.RowDefinitions>
 
 
+            <Grid Background="#37743E"
+                  HorizontalAlignment="Left" 
+                  Width="300"
+                  Margin="0,20,0,20" Grid.ColumnSpan="3" Grid.RowSpan="2"
+            >
+                
+            </Grid>
+
+
             <Border BorderThickness="1" Grid.Row="0" Grid.ColumnSpan="3"
                     CornerRadius="20,50,0,0" BorderBrush="Transparent" Background="#D0D8D1" Margin="-1,-1,0,538" Grid.RowSpan="2"
             />
@@ -144,8 +153,50 @@
                     HorizontalAlignment="Right"
                     Style="{DynamicResource ExitButtonTheme}" Margin="0,-9,8,39"
             />
+            <Button x:Name="AddSum" 
+                    Style="{DynamicResource ConfirmButtonTheme}" 
+                    Height="60"  
+                    Width="60"
+                    Grid.Column="4"
+                    Grid.Row="1"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Right" Margin="0,0,10,10" Grid.ColumnSpan="2"
+            >
+                <Image Source="/Img/Check.png"/>
+            </Button>
 
-
+            <ComboBox x:Name="CategoriesBox" 
+                      Grid.Column="1"  
+                      Grid.Row="1" 
+                      Grid.ColumnSpan="2"
+                      Height="40"
+                      Width="250"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Top" 
+                      Margin="5,10,5,0"
+            />
+            <ComboBox x:Name="CurrenciesBox" 
+                      Grid.Column="1"  
+                      Grid.Row="1"
+                      Grid.ColumnSpan="2"
+                      Height="40"
+                      Width="250"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Top" 
+                      Margin="5,150,0,0"
+            />
+            <TextBox x:Name="SumBox_Copy"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Grid.Row="1"
+                Width="250"
+                Height="40"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Margin="0,300,0,0"
+                Style="{StaticResource ModernField}"
+                Text="{Binding SpName, UpdateSourceTrigger=PropertyChanged}"
+            />
 
         </Grid>
     </Border>
