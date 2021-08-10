@@ -15,6 +15,7 @@ namespace Server.ControlModels
         public void ADDTRANS(decimal sum, int categoryId, int currencyId)
         {
             dolbaza.Transactions.Add(new Transaction() { Amount = sum, CategoryId = categoryId, CurrencyId = currencyId, UserId = 0 });
+            dolbaza.SaveChanges();
         }
 
         public decimal GETSTAT(int categoryId)
@@ -33,6 +34,7 @@ namespace Server.ControlModels
         public void ADD_USER(string login, string password)
         {
             dolbaza.Users.Add(new User() { Login = login, Password = password, Name = "default" });
+            dolbaza.SaveChanges();
         }
     }
 }
