@@ -49,7 +49,11 @@ namespace WithoutName.ViewModels
             {
                 return _addUser ?? (_addUser = new RelayCommand(obj =>
                 {
-                    string response = SVM.CommandToServer("ADD_USER","login","password");
+                    
+                    Params a = new Params();
+                    a.t = new List<string>() { "ADD_USER", "login", "password" }; 
+
+                    string response = SVM.CommandToServer(a);
                     if (response != null)
                         MessageBox.Show("Registration Succesfully");
                 }));
@@ -63,7 +67,12 @@ namespace WithoutName.ViewModels
             {
                 return _authUser ?? (_authUser = new RelayCommand(obj =>
                 {
-                    string response = SVM.CommandToServer("LOGIN_USER", "login", "password");
+
+                    
+                    Params a = new Params();
+                    a.t = new List<string>() { "LOGIN_USER", "login", "password" };
+
+                    string response = SVM.CommandToServer(a);
                     if (response != null)
                         MessageBox.Show("Authoriztion Succesfully");
                 }));

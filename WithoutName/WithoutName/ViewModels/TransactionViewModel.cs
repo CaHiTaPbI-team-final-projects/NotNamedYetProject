@@ -8,8 +8,7 @@ using System.Windows;
 using WithoutName.ViewModels;
 using System.Windows.Controls;
 using System.Windows.Input;
-
-
+using System.Collections.Generic;
 
 namespace WithoutName.ViewModels
 {
@@ -33,7 +32,12 @@ namespace WithoutName.ViewModels
             {
                 return _addTransaction ?? (_addTransaction = new RelayCommand(obj =>
                 {
-                    string response = SVM.CommandToServer("ADD_TRANSACTION", "USERID", "SUM","CATEGORYID","CURRENCYID");
+                    
+                    Params a = new Params();
+                    a.t = new List<string>() { "ADD_TRANSACTION", "USERID", "SUM", "CATEGORYID", "CURRENCYID" };
+
+
+                    string response = SVM.CommandToServer(a);
                     if (response != null)
                         MessageBox.Show("Transaction Added");
                 }));
