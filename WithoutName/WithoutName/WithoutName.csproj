@@ -61,6 +61,7 @@
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Currency.cs" />
+    <Compile Include="Models\Params.cs" />
     <Compile Include="Models\Receipt.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\User.cs" />
@@ -80,11 +81,10 @@
     <Compile Include="ViewModels\TransactionViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="ViewModels\WarrantyViewModel.cs" />
-
     <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-     <Compile Include="Views\ErrWindow.xaml.cs">
+    <Compile Include="Views\ErrWindow.xaml.cs">
       <DependentUpon>ErrWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Theme\ConfirmButtonTheme.xaml">
