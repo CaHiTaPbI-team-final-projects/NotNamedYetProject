@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using WithoutName.ViewModels;
 namespace WithoutName.Views
 {
     /// <summary>
@@ -19,9 +19,12 @@ namespace WithoutName.Views
     /// </summary>
     public partial class Login : Window
     {
+        LoginWindowViewModel lvm { get; set; } = new LoginWindowViewModel();
         public Login()
         {
+            
             InitializeComponent();
+            this.DataContext = lvm;
         }
     }
 }
