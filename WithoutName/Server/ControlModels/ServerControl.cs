@@ -10,12 +10,7 @@ namespace Server.ControlModels
 {
     public class ServerControl
     {
-        private EDM dolbaza = new EDM();
-
-        public void ADDTRANS(decimal sum, int categoryId, int currencyId)
-        {
-            dolbaza.Transactions.Add(new Transaction() { Amount = sum, CategoryId = categoryId, CurrencyId = currencyId, UserId = 0 });
-        }
+        private EDM dolbaza = new EDM();       
 
         public decimal GETSTAT(int categoryId)
         {
@@ -28,11 +23,7 @@ namespace Server.ControlModels
             }
 
             return res;
-        }
+        }     
 
-        public void ADD_USER(string login, string password)
-        {
-            dolbaza.Users.Add(new User() { Login = login, Password = password, Name = "default" });
-        }
     }
 }
