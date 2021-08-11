@@ -50,7 +50,11 @@ namespace WithoutName.ViewModels
             //Register = new RelayCommand(ForceRegister, canExecuteMethod);
             //_loginWindow = loginWindow;
             
+            
         }
+
+    
+
 
         public static string GetHash(string input)
         {

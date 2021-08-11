@@ -21,8 +21,6 @@ namespace WithoutName.ViewModels
     {
 
 
-        private string _login;
-        private string _password;
         ServerViewModel SVM { get; set; }
         
         public UserViewModel(ServerViewModel SV)
@@ -32,27 +30,7 @@ namespace WithoutName.ViewModels
             
         }
 
-        public string Login
-        {
-            get { return _login; }
-            set
-            {
-                _login = value;
-                OnPropertyChanged("Login");
-            }
-        }
-
-
-        public string Password
-        {
-            get { return _password; }
-            set
-            {
-                _password = value;
-                OnPropertyChanged("Password");
-            }
-        }
-
+ 
         private RelayCommand _addUser;
         public RelayCommand AddUser
         {
@@ -79,7 +57,7 @@ namespace WithoutName.ViewModels
                 return _authUser ?? (_authUser = new RelayCommand(obj =>
                 {
 
-                    MessageBox.Show($"{Login} {Password}");
+                   // MessageBox.Show($"{_login},{_password}");
                     //Params a = new Params();
                     //a.t = new List<string>() { "LOGIN_USER", "login", "password" };
 
@@ -90,7 +68,30 @@ namespace WithoutName.ViewModels
             }
         }
 
+        private string _login;
+        private string _password;
+        public string Login
+        {
+            get { return _login; }
+            set
+            {
+                MessageBox.Show("Works LOG");
+                _login = value;
+                this.OnPropertyChanged("Login");
+            }
+        }
 
+
+        public string Password
+        {
+            get { return _password; }
+            set
+            {
+                MessageBox.Show("Works PSS");
+                _password = value;
+                this.OnPropertyChanged("Password");
+            }
+        }
 
 
 

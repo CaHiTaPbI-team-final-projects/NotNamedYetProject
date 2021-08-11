@@ -53,11 +53,14 @@
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left" Margin="24,0,0,0"
                 />
-                <TextBox Text="{Binding uvm.Login}"
+                <TextBox  x:Name="LoginBox"
+                         
+                          
                          VerticalAlignment="Top"
                          HorizontalAlignment="Center"
                          Style="{StaticResource ModernField}"
                          Grid.ColumnSpan="2"
+                         Text="{Binding uvm.Login, UpdateSourceTrigger=PropertyChanged}"
                 />
 
                 <Label Content="{x:Static language:Lang.password}"
@@ -67,12 +70,15 @@
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left" Margin="24,0,0,0"
                 />
-                <TextBox Text="{Binding uvm.Password}"
+                <TextBox x:Name="PasswordBox"
+                         
+                         
                          
                          VerticalAlignment="Top"
                          HorizontalAlignment="Center"
                          Style="{StaticResource ModernField}"
                          Grid.ColumnSpan="2"
+                         Text="{Binding uvm.Password, UpdateSourceTrigger=PropertyChanged}" 
                 />
                 <Label Content="Такого имени пользователя не существует"
                        Foreground="#E9E9E9"
