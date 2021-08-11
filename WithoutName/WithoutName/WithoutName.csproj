@@ -91,6 +91,10 @@
     <Compile Include="Views\ErrWindow.xaml.cs">
       <DependentUpon>ErrWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Theme\ButtonBananaTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Theme\ConfirmButtonTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -98,6 +102,10 @@
     <Page Include="Theme\hrefButtonTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\MainMenuButtonTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Theme\NewTextBoxTheme.xaml">
       <SubType>Designer</SubType>
