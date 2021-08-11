@@ -64,6 +64,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ControlModels\AccountControl.cs" />
+    <Compile Include="ControlModels\CardControl.cs" />
+    <Compile Include="ControlModels\CategoryControl.cs" />
+    <Compile Include="ControlModels\CurrencyControl.cs" />
+    <Compile Include="ControlModels\ReceiptControl.cs" />
+    <Compile Include="ControlModels\TransactionControl.cs" />
+    <Compile Include="ControlModels\UserControl.cs" />
+    <Compile Include="ControlModels\WarrantyControl.cs" />
     <Compile Include="Repositories\Implementations\AccountsRepositry.cs" />
     <Compile Include="Repositories\Implementations\CardsRepository.cs" />
     <Compile Include="Repositories\Implementations\CategoriesRepository.cs" />
