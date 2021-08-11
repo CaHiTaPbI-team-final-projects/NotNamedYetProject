@@ -1,17 +1,29 @@
-﻿<Window x:Class="WithoutName.Views.MainWindow"
+﻿<Window x:Class="WithoutName.Views.MainWindow" x:Name="MainWnd"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:WithoutName"
         xmlns:language="clr-namespace:WithoutName.Properties.Localization"
         mc:Ignorable="d"
+        
         Height="600" Width="860"
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True"
         >
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="MouseLeftButtonDown">
+            <i:InvokeCommandAction
+                            Command="{Binding DragEvent}"
+                            CommandParameter="{Binding ElementName=MainWnd}" />
+        </i:EventTrigger>
+        
+    </i:Interaction.Triggers>
+    
     <Border Background="#D3D8D3" 
             CornerRadius="20"
             >
@@ -46,17 +58,18 @@
                 <Button 
                     Grid.Column="0"                             
                     Style="{DynamicResource MainMenuButtonTheme}"
-                    Command="{Binding ATvm._ATBUTTON1}" 
-                    CommandParameter="{Binding ATBUTTON1}"
-                         
+
+                    Command="{Binding Tab1}"
+                    CommandParameter="{Binding ElementName=MainWnd}"
             >
                     <Image Source="/Img/pie.png"/>
                 </Button>
                 <Button 
                     Grid.Column="1"                             
                     Style="{DynamicResource MainMenuButtonTheme}"
-                    Command="{Binding ATvm._ATBUTTON1}" 
-                    CommandParameter="{Binding ATBUTTON1}"
+
+                    Command="{Binding Tab2}"
+                    CommandParameter="{Binding ElementName=MainWnd}"
                          
             >
                     <Image Source="/Img/digram.png"/>
@@ -83,6 +96,8 @@
                     Grid.Column="4"
                     HorizontalAlignment="Right"
                     Style="{DynamicResource ExitButtonTheme}" Margin="0,-9,8,39"
+                             Command="{Binding Exit}"
+                    CommandParameter="{Binding ElementName=MainWnd}"
             />
             </Grid>
 
@@ -137,6 +152,7 @@
                 <Button x:Name="AddSum" 
                     Style="{DynamicResource ConfirmButtonTheme}" 
                     Height="60"  
+                    
                     Width="60"
                         Margin="0 20"
                     Grid.Column="1"
@@ -150,6 +166,7 @@
 
 
             <Grid x:Name="Tab2Grid"  Visibility="Visible" Grid.Row="1" Background="#37743E" >  <!-- Tab 2 grid -->
+                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
