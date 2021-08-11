@@ -14,6 +14,7 @@ using WithoutName.ViewModels;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Security.Cryptography;
+using System.Diagnostics;
 
 namespace WithoutName.ViewModels
 {
@@ -21,19 +22,14 @@ namespace WithoutName.ViewModels
     {
         ServerViewModel SVM { get; set; } = new ServerViewModel();
         //login values
-        private string _login;
-        private string _password;
+       
 
         //LoginWindow _loginWindow;
 
-        //register values
-        private string _loginReg;
-        private string _passwordReg;
-        private string _fnameReg;
-        private string _snameReg;
 
+        
 
-        private UserViewModel uvm { get; set; }
+        public UserViewModel uvm { get; set; }
 
         // Data for main window
         public bool isAuthorized { get; set; }
@@ -45,14 +41,20 @@ namespace WithoutName.ViewModels
 
 
 
-        //public LoginWindowViewModel(LoginWindow loginWindow)
-        //{
-        //    uvm = new UserViewModel(SVM);
-        //    isAuthorized = false;
-        //    //Authorize = new RelayCommand(ForceAuthorize, canExecuteMethod);
-        //    //Register = new RelayCommand(ForceRegister, canExecuteMethod);
-        //    //_loginWindow = loginWindow;
-        //}
+        public LoginWindowViewModel()
+        {   //LoginWindow loginWindow
+
+            uvm = new UserViewModel(SVM);
+            isAuthorized = false;
+            //Authorize = new RelayCommand(ForceAuthorize, canExecuteMethod);
+            //Register = new RelayCommand(ForceRegister, canExecuteMethod);
+            //_loginWindow = loginWindow;
+            
+            
+        }
+
+    
+
 
         public static string GetHash(string input)
         {
@@ -65,52 +67,15 @@ namespace WithoutName.ViewModels
                 s.Append(b.ToString("x2").ToLower());
             }
             return s.ToString();
-
+            
         }
 
 
-        public string Login
-        {
-            get { return _login; }
-            set
-            {
-                _login = value;
-                OnPropertyChanged("Login");
-            }
-        }
+   
+        
 
 
-        public string LoginReg
-        {
-            get { return _loginReg; }
-            set
-            {
-                _loginReg = value;
-                OnPropertyChanged("LoginReg");
-            }
-        }
 
-        public string FnameReg
-        {
-            get { return _fnameReg; }
-            set
-            {
-                _fnameReg = value;
-                OnPropertyChanged("FnameReg");
-            }
-        }
-
-        public string SnameReg
-        {
-            get { return _snameReg; }
-            set
-            {
-                _snameReg = value;
-                OnPropertyChanged("SnameReg");
-            }
-        }
-
- 
 
 
         //void ForceRegister(object parameter)
@@ -191,7 +156,84 @@ namespace WithoutName.ViewModels
         //    }
         //}
 
+        private RelayCommand _dragEvent;
+        public RelayCommand DragEvent
+        {
+            get
+            {
+                return _dragEvent ?? (_dragEvent = new RelayCommand(obj =>
+                {
+                    Window win = (Window)obj;
+                    win.DragMove();
+                }));
+            }
+        }
 
+        private RelayCommand _exit;
+        public RelayCommand Exit
+        {
+            get
+            {
+                return _exit ?? (_exit = new RelayCommand(obj =>
+                {
+                    Window win = (Window)obj;
+                    win.Close();
+                }));
+            }
+        }
+
+        private RelayCommand _loadedEvent;
+        public RelayCommand LoadedEvent
+        {
+            get
+            {
+                return _loadedEvent ?? (_loadedEvent = new RelayCommand(obj =>
+                {
+                    ComboBox lang = (ComboBox)obj;
+                    if(Properties.Settings.Default.languageCode == "en-US")
+                    {
+                        lang.SelectedIndex = 0;
+                    }
+                    else if (Properties.Settings.Default.languageCode == "uk-UA")
+                    {
+                        lang.SelectedIndex = 1;
+                    }
+                    else if(Properties.Settings.Default.languageCode == "ru-RU")
+                    {
+                        lang.SelectedIndex = 2;
+                    }
+                    
+                }));
+            }
+        }
+
+        private RelayCommand _languageSelection;
+        public RelayCommand LanguageSelection
+        {
+            get
+            {
+                return _languageSelection ?? (_languageSelection = new RelayCommand(obj =>
+                {
+                    ComboBox comb = (ComboBox)obj;
+                    
+                    if(comb.SelectedIndex == 0)
+                    {
+                        Properties.Settings.Default.languageCode = "en-US";
+                    }
+                    else if(comb.SelectedIndex == 1)
+                    {
+                        Properties.Settings.Default.languageCode = "uk-UA";
+                    }
+                    else if(comb.SelectedIndex == 2)
+                    {
+                        Properties.Settings.Default.languageCode = "ru-RU";
+                    }
+                    Properties.Settings.Default.Save();
+                    Process.Start(Application.ResourceAssembly.Location);
+                    Application.Current.Shutdown();
+                }));
+            }
+        }
 
 
 
