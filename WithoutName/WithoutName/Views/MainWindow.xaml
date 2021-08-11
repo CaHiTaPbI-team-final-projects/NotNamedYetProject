@@ -178,17 +178,17 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <Button Grid.Column="0" Grid.Row="0" Content="Продукты" Background="#316137" FontSize="24"/>
-                <Button Grid.Column="0" Grid.Row="1" Content="Медицина" Background="#316137" FontSize="24"/>
-                <Button Grid.Column="0" Grid.Row="2" Content="Зоотовары" Background="#316137" FontSize="24"/>
+                <Button Grid.Column="0" Grid.Row="0" Content="Продукты" FontSize="24" Style="{DynamicResource ButtonBananaTheme}"/>
+                <Button Grid.Column="0" Grid.Row="1" Content="Медицина" FontSize="24" Style="{DynamicResource ButtonBananaTheme}"/>
+                <Button Grid.Column="0" Grid.Row="2" Content="Зоотовары" FontSize="24" Style="{DynamicResource ButtonBananaTheme}"/>
 
-                <Button Grid.Column="1" Grid.Row="0" Content="Автотовары" Background="#316137" FontSize="24"/>
-                <Button Grid.Column="1" Grid.Row="1" Content="Развлечения" Background="#316137" FontSize="24"/>
-                <Button Grid.Column="1" Grid.Row="2" Content="Цветы" Background="#316137" FontSize="24"/>
+                <Button Grid.Column="1" Grid.Row="0" Content="Автотовары" FontSize="24"  Style="{DynamicResource ButtonBananaTheme}"/>
+                <Button Grid.Column="1" Grid.Row="1" Content="Развлечения" FontSize="24"  Style="{DynamicResource ButtonBananaTheme}"/>
+                <Button Grid.Column="1" Grid.Row="2" Content="Цветы" FontSize="24" Style="{DynamicResource ButtonBananaTheme}"/>
 
-                <Button Grid.Column="2" Grid.Row="0" Content="Подарки" Background="#316137" FontSize="24"/>
-                <Button Grid.Column="2" Grid.Row="1" Content="Рестораны" Background="#316137" FontSize="24"/>
-                <Button Grid.Column="2" Grid.Row="2" Content="Фриланс" Background="#316137" FontSize="24"/>
+                <Button Grid.Column="2" Grid.Row="0" Content="Подарки" FontSize="24" Style="{DynamicResource ButtonBananaTheme}"/>
+                <Button Grid.Column="2" Grid.Row="1" Content="Рестораны" FontSize="24" Style="{DynamicResource ButtonBananaTheme}"/>
+                <Button Grid.Column="2" Grid.Row="2" Content="Фриланс" FontSize="24" Style="{DynamicResource ButtonBananaTheme}"/>
                 
 
             </Grid>
