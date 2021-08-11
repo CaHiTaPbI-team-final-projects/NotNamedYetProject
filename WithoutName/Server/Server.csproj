@@ -72,6 +72,7 @@
     <Compile Include="ControlModels\TransactionControl.cs" />
     <Compile Include="ControlModels\UserControl.cs" />
     <Compile Include="ControlModels\WarrantyControl.cs" />
+    <Compile Include="Models\Params.cs" />
     <Compile Include="Repositories\Implementations\AccountsRepositry.cs" />
     <Compile Include="Repositories\Implementations\CardsRepository.cs" />
     <Compile Include="Repositories\Implementations\CategoriesRepository.cs" />
