@@ -130,7 +130,7 @@
                          Margin="0 20"
                 Height="40"
                 HorizontalAlignment="Center"
-                Style="{StaticResource ModernField}"
+                Style="{StaticResource NewTextBoxTheme}"
                 Text="{Binding SpName, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <ComboBox x:Name="CategoriesBox" 
@@ -165,8 +165,17 @@
             
 
 
-            <Grid x:Name="Tab2Grid"  Visibility="Visible" Grid.Row="1" Background="#37743E" >  <!-- Tab 2 grid -->
+            <Grid x:Name="Tab2Grid"  Visibility="Hidden" Grid.Row="1" Background="#37743E" >  <!-- Tab 2 grid -->
+                <!-- 
+                Продукты
                 
+                
+                
+                
+                
+                
+                Фриланс
+                -->
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -178,17 +187,80 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <Button Grid.Column="0" Grid.Row="0" Content="Продукты" FontSize="24" Style="{DynamicResource ButtonBananaTheme}"/>
-                <Button Grid.Column="0" Grid.Row="1" Content="Медицина" FontSize="24" Style="{DynamicResource ButtonBananaTheme}"/>
-                <Button Grid.Column="0" Grid.Row="2" Content="Зоотовары" FontSize="24" Style="{DynamicResource ButtonBananaTheme}"/>
+                <Border Background="#ED2000" CornerRadius="20" Margin="50,5,50,5" 
+                        Grid.Column="0" 
+                        Grid.Row="0">
+                    <Button Content="Продукты"
+                            FontSize="24"
+                            Style="{DynamicResource ButtonBananaTheme}"
+                    />
+                </Border>
+                <Border Background="#ED6700" CornerRadius="20" Margin="50,5,50,5" 
+                        Grid.Column="0" 
+                        Grid.Row="1">
+                    <Button Content="Медицина"
+                            FontSize="24"
+                            Style="{DynamicResource ButtonBananaTheme}"
+                    />
+                </Border>
+                <Border Background="#D3D8D3" CornerRadius="20" Margin="50,5,50,5" 
+                        Grid.Column="0" 
+                        Grid.Row="2">
+                    <Button Content="Зоотовары"
+                            FontSize="24"
+                            Style="{DynamicResource ButtonBananaTheme}"
+                    />
+                </Border>
 
-                <Button Grid.Column="1" Grid.Row="0" Content="Автотовары" FontSize="24"  Style="{DynamicResource ButtonBananaTheme}"/>
-                <Button Grid.Column="1" Grid.Row="1" Content="Развлечения" FontSize="24"  Style="{DynamicResource ButtonBananaTheme}"/>
-                <Button Grid.Column="1" Grid.Row="2" Content="Цветы" FontSize="24" Style="{DynamicResource ButtonBananaTheme}"/>
+                <Border Background="#D3D8D3" CornerRadius="20" Margin="50,5,50,5" 
+                        Grid.Column="1" 
+                        Grid.Row="0">
+                    <Button Content="Автотовары"
+                            FontSize="24"
+                            Style="{DynamicResource ButtonBananaTheme}"
+                    />
+                </Border>
+                <Border Background="#D3D8D3" CornerRadius="20" Margin="50,5,50,5" 
+                        Grid.Column="1" 
+                        Grid.Row="1">
+                    <Button Content="Развлечения"
+                            FontSize="24"
+                            Style="{DynamicResource ButtonBananaTheme}"
+                    />
+                </Border>
+                <Border Background="#D3D8D3" CornerRadius="20" Margin="50,5,50,5" 
+                        Grid.Column="1" 
+                        Grid.Row="2">
+                    <Button Content="Цветы"
+                            FontSize="24"
+                            Style="{DynamicResource ButtonBananaTheme}"
+                    />
+                </Border>
 
-                <Button Grid.Column="2" Grid.Row="0" Content="Подарки" FontSize="24" Style="{DynamicResource ButtonBananaTheme}"/>
-                <Button Grid.Column="2" Grid.Row="1" Content="Рестораны" FontSize="24" Style="{DynamicResource ButtonBananaTheme}"/>
-                <Button Grid.Column="2" Grid.Row="2" Content="Фриланс" FontSize="24" Style="{DynamicResource ButtonBananaTheme}"/>
+                <Border Background="#D3D8D3" CornerRadius="20" Margin="50,5,50,5" 
+                        Grid.Column="2" 
+                        Grid.Row="0">
+                    <Button Content="Рестораны"
+                            FontSize="24"
+                            Style="{DynamicResource ButtonBananaTheme}"
+                    />
+                </Border>
+                <Border Background="#D3D8D3" CornerRadius="20" Margin="50,5,50,5" 
+                        Grid.Column="2" 
+                        Grid.Row="1">
+                    <Button Content="Бытовая tехника"
+                            FontSize="24"
+                            Style="{DynamicResource ButtonBananaTheme}"
+                    />
+                </Border>
+                <Border Background="#D3D8D3" CornerRadius="20" Margin="50,5,50,5" 
+                        Grid.Column="2" 
+                        Grid.Row="2">
+                    <Button Content="Фриланс"
+                            FontSize="24"
+                            Style="{DynamicResource ButtonBananaTheme}"
+                    />
+                </Border>
                 
 
             </Grid>
