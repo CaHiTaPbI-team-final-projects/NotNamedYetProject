@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace WithoutName.Models
 {
+    [Serializable]
     public class Params
     {
-        public List<string> t { get; set; }
-
+            public object ClassForSend { get; set; }
+            public string Command { get; set; }
         
+
+
     }
 }

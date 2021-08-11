@@ -17,6 +17,7 @@ using System.Security.Cryptography;
 using System.Net;
 using System.Net.Sockets;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace WithoutName.ViewModels
 {
@@ -54,18 +55,13 @@ namespace WithoutName.ViewModels
                 client = new TcpClient();
                 client.Connect(ep);
                 NetworkStream ns = client.GetStream();
-                StreamWriter writer = new StreamWriter(ns);
-                string request = "";
-                for (int i = 0; i < p.t.Count; i++)
-                {
-                    if(i != 0)
-                    {
-                        request += ";";
-                    }
-                    request += $"{p.t[i]}";
-                }
-                writer.WriteLine($"");
-                writer.Flush();
+                //StreamWriter writer = new StreamWriter(ns);
+                //string request = "";
+                BinaryFormatter writer = new BinaryFormatter();
+                writer.Serialize(ns, p);
+
+                //writer.WriteLine($"");
+                //writer.Flush();
 
 
                 string buff;
@@ -82,7 +78,7 @@ namespace WithoutName.ViewModels
 
 
                 reader.Close();
-                writer.Close();
+                //writer.Close();
                 ns.Close();
                 client.Close();
                 return buff;
