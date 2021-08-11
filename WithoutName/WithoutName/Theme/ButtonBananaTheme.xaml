@@ -3,7 +3,7 @@
                     xmlns:local="clr-namespace:WithoutName.Theme">
     <Style x:Key="ButtonBananaTheme" TargetType="{x:Type Button}">
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-        <Setter Property="Background" Value="#316137"/>
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="#D3D8D3"/>
         <Setter Property="Foreground" Value="#1B1F1C"/>
         <Setter Property="BorderThickness" Value="0"/>
