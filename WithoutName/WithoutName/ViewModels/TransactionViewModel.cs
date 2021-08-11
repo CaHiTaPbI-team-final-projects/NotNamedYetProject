@@ -34,8 +34,17 @@ namespace WithoutName.ViewModels
                 {
                     
                     Params a = new Params();
-                    a.t = new List<string>() { "ADD_TRANSACTION", "USERID", "SUM", "CATEGORYID", "CURRENCYID" };
+                    
 
+                    Transaction transaction = new Transaction()
+                    {
+                        UserId = 0,
+                        Amount = 0,
+                        CategoryId = 0,
+                        CurrencyId = 0
+                    };
+                    a.ClassForSend = transaction;
+                    a.Command = "ADD_TRANSACTION";
 
                     string response = SVM.CommandToServer(a);
                     if (response != null)
