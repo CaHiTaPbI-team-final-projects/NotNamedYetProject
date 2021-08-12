@@ -15,8 +15,12 @@ using System.Windows.Shapes;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using Server.EF;
 using System.IO;
+using Server.Models;
 using Server.ControlModels;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Remoting.Messaging;
 
 namespace Server
 {
@@ -26,6 +30,9 @@ namespace Server
     public partial class MainWindow : Window
     {
         ServerControl sc  = new ServerControl();
+
+        EDM dolbaza = new EDM();
+
 
         int port = 15228;
         IPAddress addr;
@@ -54,7 +61,7 @@ namespace Server
             MessageBox.Show("2");
             try
             {
-                listener = new TcpListener(IPAddress.Any, port);
+                listener = new TcpListener(IPAddress.Parse("127.0.0.1"), port);
                 listener.Start();
 
 
@@ -93,32 +100,48 @@ namespace Server
 
             StreamReader reader = new StreamReader(stream);
             // считываем строку из потока
-            string message = reader.ReadLine();
 
-            MessageBox.Show("Получено: " + message);
+            BinaryFormatter readerr = new BinaryFormatter();
+            Params pm = (Params) readerr.Deserialize(stream);
 
-            string[] msg = message.Split(';');
 
-            switch (msg[0])
+
+            
+
+            MessageBox.Show("Получено: " + pm.Command);
+
+            string mesage= "";
+
+            switch (pm.Command)
             {
                 case "ADDTRANS":
-                    sc.ADDTRANS(decimal.Parse(msg[1]), int.Parse(msg[2]), int.Parse(msg[3]));
+                    //sc.ADDTRANS(decimal.Parse(msg[1]), int.Parse(msg[2]), int.Parse(msg[3]));
                     break;
 
                 case "GETSTAT":
-                    response = sc.GETSTAT(int.Parse(msg[1])).ToString();
+                    //response = sc.GETSTAT(int.Parse(msg[1])).ToString();
                     break;
                 case "ADD_USER":
-                    sc.ADD_USER(msg[1], msg[2]);
+                    //sc.ADD_USER(msg[1], msg[2]);
+                    break;
+                case "LOGIN_USER":
+                    if(dolbaza.Users.Where(x => x.Login == (pm.ClassForSend as User).Login).Count() == 1)
+                    {
+                         mesage = "true";
+                    }
+                    else
+                    {
+                         mesage = "false";
+                    }
                     break;
 
             }
 
             // отправляем ответ
             StreamWriter writer = new StreamWriter(stream);
-            message = message.ToUpper();
-            MessageBox.Show("Отправлено: " + message);
-            writer.WriteLine(message);
+            mesage = mesage.ToUpper();
+            MessageBox.Show("Отправлено: " + mesage);
+            writer.WriteLine(mesage);
 
             writer.Close();
             reader.Close();
