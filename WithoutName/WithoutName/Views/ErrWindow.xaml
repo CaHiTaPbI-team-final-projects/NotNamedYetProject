@@ -12,7 +12,7 @@
         AllowsTransparency="True"
         >
 
-    <Border Background="#37743E" 
+    <Border Background="#316F39" 
             CornerRadius="20"
             >
         <Grid>

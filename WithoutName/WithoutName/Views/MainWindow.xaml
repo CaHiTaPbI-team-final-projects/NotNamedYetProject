@@ -102,7 +102,7 @@
             </Grid>
 
 
-            <Grid x:Name="Tab1Grid"  Visibility="Visible" Grid.Row="1" Background="#314934"> <!-- Tab 1 grid -->
+            <Grid x:Name="Tab1Grid"  Visibility="Visible" Grid.Row="1" Background="#316F39"> <!-- Tab 1 grid -->
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -165,17 +165,7 @@
 
 
 
-            <Grid x:Name="Tab2Grid"  Visibility="Hidden" Grid.Row="1" Background="#1D3D21" >  <!-- Tab 2 grid -->
-                <!-- 
-                Продукты
-                
-                
-                
-                
-                
-                
-                Фриланс
-                -->
+            <Grid x:Name="Tab2Grid"  Visibility="Hidden" Grid.Row="1" Background="#316F39" >  <!-- Tab 2 grid -->                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
