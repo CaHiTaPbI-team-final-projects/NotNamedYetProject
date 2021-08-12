@@ -102,10 +102,10 @@
                               MaxHeight="{TemplateBinding MaxDropDownHeight}">
                                 <Border 
                                 x:Name="DropDownBorder"
-                                Background="#316137"
+                                Background="#D3DEDC"
 
                                 BorderThickness="1"
-                                BorderBrush="#316137"/>
+                                BorderBrush="#D3DEDC"/>
                                 <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
                                     <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
                                 </ScrollViewer>
@@ -154,10 +154,10 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsHighlighted" Value="true">
-                            <Setter TargetName="Border" Property="Background" Value="#316137"/>
+                            <Setter TargetName="Border" Property="Background" Value="#D3DEDC"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Foreground" Value="#316137"/>
+                            <Setter Property="Foreground" Value="#D3DEDC"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
