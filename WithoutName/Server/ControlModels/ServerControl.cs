@@ -107,10 +107,7 @@ namespace Server.ControlModels
             }
         }
 
-        private List<string> UnpackRequest(string request)
-        {
-            return request.Split(';').ToList();
-        }
+       
 
         public decimal GETSTAT(int categoryId)
         {

@@ -14,13 +14,26 @@ namespace Server.ControlModels
         {
             this.edm = edm;
         }
-        public void ADD_ACCOUNT()
-        { }
+        public void ADD_ACCOUNT(Account account)
+        {
+            edm.Accounts.Add(account);
+            edm.SaveChanges();
+        }
 
-        public void DEL_ACCOUNT()
-        { }
+        public void DEL_ACCOUNT(Account account)
+        {
+            var deletedAccount = edm.Accounts.Where(c => c.Id == account.Id).FirstOrDefault();
+            if(deletedAccount != null)
+            {
+                edm.Accounts.Remove(deletedAccount);
+                edm.SaveChanges();
+            }
+        }
 
-        public void UPDATE_ACCOUNT()
-        { }
+        public void UPDATE_ACCOUNT(Account account)
+        {
+            DEL_ACCOUNT(account);
+            ADD_ACCOUNT(account);
+        }
     }
 }
