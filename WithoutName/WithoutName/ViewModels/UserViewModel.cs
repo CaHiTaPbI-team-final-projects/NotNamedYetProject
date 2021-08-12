@@ -100,10 +100,11 @@ namespace WithoutName.ViewModels
                     Params a = new Params();
                     a.ClassForSend = user;
                     a.Command = "LOGIN_USER";
-                    
+
                     //string response = SVM.CommandToServer(a);
                     //if (response != null)
 
+                    { 
                     Random r = new Random();
 
                     int res = r.Next(0, 12); // наша оценка за проект
@@ -118,7 +119,7 @@ namespace WithoutName.ViewModels
                     {
                         MessageBox.Show("Authoriztion failed");
                     }
-                        
+                    }
 
 
                 }));
