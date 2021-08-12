@@ -119,7 +119,15 @@
 
 
                 <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="6" Margin="10 10 0 10">
-                    <ListBox MinHeight="520" Background="#1D3D21"/>
+                    <ListBox MinHeight="520" Background="#1D3D21">
+                        <ListBoxItem Content="Silpo продукты 300 гривен" FontSize="24" HorizontalAlignment="Center" Foreground="#D3DEDC"/>
+                        <ListBoxItem Content="Amazon продукты 10 долларов" FontSize="24" HorizontalAlignment="Center" Foreground="#D3DEDC"/>
+                        <ListBoxItem Content="Epicetnr строительные товары 2456" FontSize="22" HorizontalAlignment="Center" Foreground="#D3DEDC"/>
+                        <ListBoxItem Content="Rozetka электроника 25144 гривен" FontSize="24" HorizontalAlignment="Center" Foreground="#D3DEDC"/>
+                        <ListBoxItem Content="Foxtrot электроника 99 гривен" FontSize="24" HorizontalAlignment="Center" Foreground="#D3DEDC"/>
+                        <ListBoxItem Content="КафеC# кафе и рестораны 15 гривен" FontSize="24" HorizontalAlignment="Center" Foreground="#D3DEDC"/>
+                        
+                    </ListBox>
                 </StackPanel>
                 <Label Content="Добавить новую операцию" Grid.Row="0" Height="40" Width="250" FontSize="16" Margin="0 10" HorizontalAlignment="Center" Grid.Column="1" Style="{DynamicResource MainLabelStyle}"/>
 
