@@ -85,7 +85,7 @@
                             Margin="3,3,23,3"
                             Focusable="True" 
                             Background="#FF3F3F3F"
-                            Foreground="Green"
+                            Foreground="#316137"
                             Visibility="Hidden"
                             IsReadOnly="{TemplateBinding IsReadOnly}"/>
                         <Popup 
@@ -102,10 +102,10 @@
                               MaxHeight="{TemplateBinding MaxDropDownHeight}">
                                 <Border 
                                 x:Name="DropDownBorder"
-                                Background="#D3DEDC"
+                                Background="#316137"
 
                                 BorderThickness="1"
-                                BorderBrush="#D3DEDC"/>
+                                BorderBrush="#316137"/>
                                 <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
                                     <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
                                 </ScrollViewer>

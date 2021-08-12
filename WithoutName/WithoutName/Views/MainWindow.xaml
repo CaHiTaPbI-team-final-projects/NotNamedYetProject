@@ -141,21 +141,41 @@
                 Style="{StaticResource NewTextBoxTheme}"
                 Text="{Binding SpName, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <ComboBox x:Name="CategoriesBox" 
-                      Grid.Column="1"  
-                      Grid.Row="2" 
-                      Height="40"
-                      Width="250"
-                        HorizontalAlignment="Center"
-                      Margin="0 20"/>
+                <ComboBox x:Name="CategoriesBox"  SelectedIndex="0"
+                          Grid.Column="1"  
+                          Grid.Row="2" 
+                          Height="40"
+                          Width="250"
+                          HorizontalAlignment="Center"
+                          Margin="0 20"
+                          Style="{DynamicResource {x:Type ComboBox}}"
+                          >
+                    <ComboBoxItem Content="Продукты"/>
+                    <ComboBoxItem Content="строительные товары"/>
+                    <ComboBoxItem Content="Электроника"/>
+                    <ComboBoxItem Content="Кафе и рестораны"/>
+                    <ComboBoxItem Content="Развлечения"/>
+                    <ComboBoxItem Content="Коммунальные услуги"/>
+                </ComboBox>
 
-                <ComboBox x:Name="CurrenciesBox" 
-                      Grid.Column="1"  
-                      Grid.Row="3"
-                      Height="40"
+                <!--Ты на видео рассказываешь про можели и репозитории на серваке. Плюс БД  -->
+
+                <ComboBox x:Name="CurrenciesBox"  SelectedIndex="0"
+                          Grid.Column="1"  
+                          Grid.Row="3"
+                          Height="40"
                           Margin="0 20"
                           HorizontalAlignment="Center"
-                      Width="250"/>
+                          Width="250"
+                          Style="{DynamicResource {x:Type ComboBox}}"
+                          >
+                    <ComboBoxItem Content="Гривны"/>
+                    <ComboBoxItem Content="Доллары"/>
+                    <ComboBoxItem Content="Евро"/>
+                    <ComboBoxItem Content="Деннары"/>
+                    <ComboBoxItem Content="Шекели"/>
+                    <ComboBoxItem Content="Франки"/>
+                </ComboBox>
 
                 <Button x:Name="AddSum" 
                     Style="{DynamicResource ConfirmButtonTheme}" 
