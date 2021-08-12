@@ -15,6 +15,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Security.Cryptography;
 
+
 namespace WithoutName.ViewModels
 {
     public class UserViewModel : INotifyPropertyChanged 
@@ -30,7 +31,21 @@ namespace WithoutName.ViewModels
             
         }
 
- 
+        public static string GetHash(string input)
+        {
+            MD5CryptoServiceProvider x = new MD5CryptoServiceProvider();
+            byte[] bs = Encoding.UTF8.GetBytes(input);
+            bs = x.ComputeHash(bs);
+            StringBuilder s = new StringBuilder();
+            foreach (byte b in bs)
+            {
+                s.Append(b.ToString("x2").ToLower());
+            }
+            return s.ToString();
+
+        }
+
+
         private RelayCommand _addUser;
         public RelayCommand AddUser
         {
@@ -38,13 +53,26 @@ namespace WithoutName.ViewModels
             {
                 return _addUser ?? (_addUser = new RelayCommand(obj =>
                 {
-                    
-                    //Params a = new Params();
-                    //a.t = new List<string>() { "ADD_USER", "login", "password" }; 
 
-                    //string response = SVM.CommandToServer(a);
-                    //if (response != null)
-                    //    MessageBox.Show("Registration Succesfully");
+                    User user = new User()
+                    {
+                        Id = 0,
+                        Login = _login,
+                        Password = GetHash(_password),
+                        Name = "New",
+                        Surname = "User",
+                        MonthLimit = 0,
+                        Income = 0
+
+                    };
+
+                    Params a = new Params();
+                    a.ClassForSend = user;
+                    a.Command = "ADD_USER";
+
+                    string response = SVM.CommandToServer(a);
+                    if (response != null)
+                        MessageBox.Show("Registration Succesfully");
                 }));
             }
         }
@@ -57,13 +85,25 @@ namespace WithoutName.ViewModels
                 return _authUser ?? (_authUser = new RelayCommand(obj =>
                 {
 
-                   // MessageBox.Show($"{_login},{_password}");
-                    //Params a = new Params();
-                    //a.t = new List<string>() { "LOGIN_USER", "login", "password" };
+                    User user = new User()
+                    {
+                        Id = 0,
+                        Login = _login,
+                        Password = GetHash(_password),
+                        Name = "",
+                        Surname = "",
+                        MonthLimit = 0,
+                        Income = 0
 
-                    //string response = SVM.CommandToServer(a);
-                    //if (response != null)
-                    //    MessageBox.Show("Authoriztion Succesfully");
+                    };
+
+                    Params a = new Params();
+                    a.ClassForSend = user;
+                    a.Command = "LOGIN_USER";
+                    
+                    string response = SVM.CommandToServer(a);
+                    if (response != null)
+                        MessageBox.Show("Authoriztion Succesfully");
                 }));
             }
         }
@@ -75,7 +115,7 @@ namespace WithoutName.ViewModels
             get { return _login; }
             set
             {
-                MessageBox.Show("Works LOG");
+                
                 _login = value;
                 this.OnPropertyChanged("Login");
             }
@@ -87,7 +127,7 @@ namespace WithoutName.ViewModels
             get { return _password; }
             set
             {
-                MessageBox.Show("Works PSS");
+                
                 _password = value;
                 this.OnPropertyChanged("Password");
             }

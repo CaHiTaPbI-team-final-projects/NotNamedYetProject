@@ -11,7 +11,11 @@
                 <ResourceDictionary Source="Theme/TextBoxTheme.xaml"/>
                 <ResourceDictionary Source="Theme/ComboBoxTheme.xaml"/>
                 <ResourceDictionary Source="Theme/ExitButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/MainMenuButtonTheme.xaml"/>
                 <ResourceDictionary Source="Theme/ConfirmButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/NewTextBoxTheme.xaml"/>
+                <ResourceDictionary Source="Theme/ButtonBananaTheme.xaml"/>
+                <ResourceDictionary Source="Theme/hrefButtonTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

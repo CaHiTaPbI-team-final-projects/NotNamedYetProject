@@ -13,8 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
-
+using WithoutName.ViewModels;
+using WithoutName.Models;
 
 namespace WithoutName.Views
 {
@@ -23,22 +23,11 @@ namespace WithoutName.Views
     /// </summary>
     public partial class MainWindow : Window
     {
+        MainWindowVievModel mwvm = new MainWindowVievModel();
         public MainWindow()
         {
             InitializeComponent();
-            // test
+            this.DataContext = mwvm;
         }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-
-
-            Process.Start(Application.ResourceAssembly.Location);
-            Application.Current.Shutdown();
-
-        }
-
-
     }
 }
