@@ -27,7 +27,7 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
-    <Border Background="#37743E" 
+    <Border Background="#1D5D25" 
             CornerRadius="20"
             >
         <Grid>
